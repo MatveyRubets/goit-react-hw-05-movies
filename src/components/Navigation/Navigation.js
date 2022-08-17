@@ -3,9 +3,18 @@ import React from 'react';
 
 const Navigation = () => {
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="movies">Movies</Link>
+    <nav
+      style={{
+        padding: '10px 0px 0px 10px',
+        fontSize: '22px',
+      }}
+    >
+      <Link style={{ marginRight: '10px', textDecoration: 'none' }} to="/">
+        Home
+      </Link>
+      <Link style={{ textDecoration: 'none' }} to="movies">
+        Movies
+      </Link>
     </nav>
   );
 };

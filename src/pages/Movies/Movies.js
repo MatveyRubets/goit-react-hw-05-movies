@@ -3,6 +3,7 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams, Link } from 'react-router-dom';
 import { getSearchMovies } from 'api/moviesApi';
+import PropTypes from 'prop-types';
 
 const Movies = () => {
   const [searchMovie, setSearchMovie] = useState(null);
@@ -59,6 +60,15 @@ const Movies = () => {
       </ul>
     </div>
   );
+};
+
+Movies.propTypes = {
+  movie: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default Movies;

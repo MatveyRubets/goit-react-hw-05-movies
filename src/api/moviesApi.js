@@ -38,3 +38,27 @@ export const getMovieDetails = async movieId => {
 
   return res.data;
 };
+
+export const getMovieCast = async movieID => {
+  const res = await axios.get(
+    `${BASE_URL}/movie/${movieID}/credits?api_key=${API_KEY}`
+  );
+
+  if (res.status !== 200) {
+    throw new Error('Nothing Found 🤷');
+  }
+
+  return res.data;
+};
+
+export const getMovieReviews = async movieId => {
+  const res = await axios.get(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`
+  );
+
+  if (res.status !== 200) {
+    throw new Error('Nothing Found 🤷');
+  }
+
+  return res.data;
+};
