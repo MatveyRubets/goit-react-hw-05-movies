@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  useLocation,
-  useParams,
-  useNavigate,
-  Link,
-  Outlet,
-} from 'react-router-dom';
+import { useLocation, useParams, Link, Outlet } from 'react-router-dom';
 import { getMovieDetails } from 'api/moviesApi';
 import { BiArrowBack } from 'react-icons/bi';
 import PropTypes from 'prop-types';
@@ -14,7 +8,6 @@ const MoviesDetails = () => {
   const [movieDetails, setMovieDetails] = useState([]);
   const { movieid } = useParams();
   const location = useLocation();
-  const history = useNavigate();
 
   const defaultImage =
     'https://media.istockphoto.com/vectors/no-image-available-icon-vector-id1216251206?b=1&k=20&m=1216251206&s=170667a&w=0&h=z0hxu_BaI_tuMjMneE_APbnx_-R2KGPXgDjdwLw5W7o=';
@@ -28,7 +21,7 @@ const MoviesDetails = () => {
     release_date,
   } = movieDetails;
 
-  const getBackLink = location.state ? location.state.form : '/';
+  const getBackLink = location.state ? location.state.from : '/';
 
   useEffect(() => {
     getMovieDetails(movieid).then(movie => setMovieDetails(movie));
@@ -36,12 +29,14 @@ const MoviesDetails = () => {
 
   return (
     <div>
-      <button onClick={() => history(-1)} type="button">
-        <span>
-          <BiArrowBack />
-        </span>
-        GO BACK
-      </button>
+      <Link to={getBackLink} state={{ from: getBackLink }}>
+        <button type="button">
+          <span>
+            <BiArrowBack />
+          </span>
+          GO BACK
+        </button>
+      </Link>
 
       <div>
         <img
