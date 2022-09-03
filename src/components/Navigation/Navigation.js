@@ -9,7 +9,10 @@ const Navigation = () => {
         fontSize: '22px',
       }}
     >
-      <Link style={{ marginRight: '10px', textDecoration: 'none' }} to="/">
+      <Link
+        style={{ marginRight: '10px', textDecoration: 'none' }}
+        to="/goit-react-hw-05-movies"
+      >
         Home
       </Link>
       <Link style={{ textDecoration: 'none' }} to="movies">

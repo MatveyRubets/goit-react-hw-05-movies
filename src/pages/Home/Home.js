@@ -19,7 +19,7 @@ const Home = () => {
             return (
               <li key={popularMovie.id}>
                 <Link
-                  to={`movies/${popularMovie.id}`}
+                  to={`/movies/${popularMovie.id}`}
                   state={{ from: location }}
                 >
                   {popularMovie.title}
