@@ -10,11 +10,11 @@ const Loader = lazy(() => import('components/Loader/Loader'));
 
 export const App = () => {
   return (
-    <Router>
+    <Router basename="goit-react-hw-05-movies">
       <Navigation />
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/goit-react-hw-05-movies" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/movies/:movieid" element={<MoviesDetails />}>
             <Route path="cast" element={<Cast />} />
